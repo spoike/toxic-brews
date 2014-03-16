@@ -5,6 +5,9 @@
             <span data-bind="text: item.title"></span>
         </div>
     </div>
+    <div data-bind="if: canCombine">
+        <button type="button" class="btn btn-default" data-bind="click: combine">Combine these items</button>
+    </div>
 </section>
 <!-- ko if: isInventoryOpen -->
     <!-- ko module: 'inventory' -->

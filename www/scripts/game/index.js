@@ -36,6 +36,12 @@ define(['knockout', 'lodash'], function(ko, _) {
             this.isInventoryOpen(false);
             this.resetSelect();
         }, this), false);
+
+        this.canCombine = ko.computed(function() {
+            return _.filter(this.itemsToCombine, function(slot) {
+                return !!slot.item();
+            }).length >= 2;
+        }, this);
     }
 
     CombineScene.prototype.resetSelect = function() {
@@ -43,6 +49,10 @@ define(['knockout', 'lodash'], function(ko, _) {
         for (i = 0; i < this.itemsToCombine.length; i++) {
             this.itemsToCombine[i].isSelected(false);
         }
+    };
+
+    CombineScene.prototype.combine = function() {
+        console.log('Combine!');
     };
 
     return new CombineScene();
