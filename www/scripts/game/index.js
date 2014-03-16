@@ -1,12 +1,12 @@
 define(['knockout', 'lodash'], function(ko, _) {
 
-    function CombineItem(parent) {
+    function CombineItemSlot(parent) {
         this.isSelected = ko.observable(false);
         this.item = ko.observable();
         this.parent = parent;
     }
 
-    CombineItem.prototype.select = function() {
+    CombineItemSlot.prototype.select = function() {
         this.parent.resetSelect();
         this.parent.isInventoryOpen(true);
         this.isSelected(true);
@@ -14,10 +14,10 @@ define(['knockout', 'lodash'], function(ko, _) {
 
     function CombineScene() {
         this.title = "Combine";
-        this.itemsToCombine = [
-            new CombineItem(this),
-            new CombineItem(this),
-            new CombineItem(this)
+        this.slots = [
+            new CombineItemSlot(this),
+            new CombineItemSlot(this),
+            new CombineItemSlot(this)
         ];
 
         this.isInventoryOpen = ko.observable(false);
@@ -28,7 +28,7 @@ define(['knockout', 'lodash'], function(ko, _) {
         }, this), false);
 
         document.addEventListener('selectInventoryItem', _.bind(function(e) {
-            var slot = _.find(this.itemsToCombine, function(combineItem) {
+            var slot = _.find(this.slots, function(combineItem) {
                 return combineItem.isSelected();
             });
             slot.item(e.detail);
@@ -38,7 +38,7 @@ define(['knockout', 'lodash'], function(ko, _) {
         }, this), false);
 
         this.canCombine = ko.computed(function() {
-            return _.filter(this.itemsToCombine, function(slot) {
+            return _.filter(this.slots, function(slot) {
                 return !!slot.item();
             }).length >= 2;
         }, this);
@@ -46,13 +46,15 @@ define(['knockout', 'lodash'], function(ko, _) {
 
     CombineScene.prototype.resetSelect = function() {
         var i;
-        for (i = 0; i < this.itemsToCombine.length; i++) {
-            this.itemsToCombine[i].isSelected(false);
+        for (i = 0; i < this.slots.length; i++) {
+            this.slots[i].isSelected(false);
         }
     };
 
     CombineScene.prototype.combine = function() {
-        console.log('Combine!');
+        if (this.canCombine()) {
+            console.log('Combine!');
+        }
     };
 
     return new CombineScene();

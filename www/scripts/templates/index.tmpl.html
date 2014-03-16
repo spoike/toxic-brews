@@ -1,6 +1,6 @@
 <section>
     <h1>Combine</h1>
-    <div data-bind="foreach: itemsToCombine">
+    <div data-bind="foreach: slots">
         <div class="select-box" data-bind="with: item, css: { selected: isSelected }, click: select">
             <span data-bind="text: item.title"></span>
         </div>
