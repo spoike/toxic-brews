@@ -10,5 +10,8 @@
             <span data-bind="text: item.title"></span> <span class="close" data-bind="click: $parent.closeSelect">(X)</span>
         </h1>
         <p data-bind="text: item.description"></p>
+        <p>
+            <button type="button" class="btn btn-default" data-bind="click: select">Select this item</button>
+        </p>
     </div>
 </section>
