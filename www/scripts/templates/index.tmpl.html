@@ -1,6 +1,12 @@
 <section>
     <h1>Combine</h1>
-
+    <div data-bind="foreach: itemsToCombine">
+        <div class="select-box" data-bind="with: item, css: { selected: isSelected }, click: select">
+            <span data-bind="text: title"></span>
+        </div>
+    </div>
 </section>
-<!-- ko module: 'inventory' -->
+<!-- ko if: isInventoryOpen -->
+    <!-- ko module: 'inventory' -->
+    <!-- /ko -->
 <!-- /ko -->

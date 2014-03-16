@@ -44,6 +44,12 @@ define(['knockout', 'lodash'], function(ko, _) {
         this.inventory.selectedItem(this);
     };
 
+    Inventory.prototype.closeInventory = function() {
+        var evt = new Event('closeInventory');
+        this.selectedItem(null);
+        document.dispatchEvent(evt); 
+    };
+
     return new Inventory();
 
 });
