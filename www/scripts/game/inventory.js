@@ -34,6 +34,10 @@ define(['knockout', 'lodash'], function(ko, _) {
         });
 
         this.selectedItem = ko.observable();
+
+        this.closeSelect = _.bind(function() {
+            this.selectedItem(null);
+        }, this);
     }
 
     Inventory.prototype.select = function() {

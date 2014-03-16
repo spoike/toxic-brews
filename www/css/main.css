@@ -39,3 +39,16 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
     list-style-type: none;
 }
+
+.inventory > ul > li:hover {
+    color: #3098ff;
+}
+
+.inventory .close {
+    cursor: pointer;
+}
+.inventory .close:hover {
+    color: #c91f04;
+    cursor: pointer;
+    opacity: 1;
+}
