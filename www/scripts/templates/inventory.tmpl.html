@@ -1,0 +1,12 @@
+<div class="inventory">
+    <h1>Inventory</h1>
+    <ul data-bind="foreach: items">
+        <li data-bind="click: $parent.select">
+            <span data-bind="text: count"></span>x <span data-bind="text: item.title"></span>
+        </li>
+    </ul>
+</div>
+<div data-bind="with: selectedItem">
+    <h1 data-bind="text: item.title"></h1>
+    <p data-bind="text: item.description"></p>
+</div>

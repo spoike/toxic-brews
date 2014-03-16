@@ -5,7 +5,8 @@ requirejs.config({
         'bootstrap': 'lib/bootstrap.min',
         'knockout': 'lib/knockout-3.0.0.min',
         'knockout-amd-helpers': 'lib/knockout-amd-helpers.0.6.1.min',
-        'text': 'lib/text-2.0.10'
+        'text': 'lib/text-2.0.10',
+        'lodash': 'lib/lodash.min'
     },
     shim: {
         'jquery': {
@@ -19,6 +20,9 @@ requirejs.config({
         },
         'knockout-amd-helpers': {
             deps: ['knockout']
+        },
+        'lodash': {
+            exports: '_'
         }
     }
 });
