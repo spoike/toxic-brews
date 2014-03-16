@@ -1,4 +1,23 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300|Freckle+Face|Press+Start+2P);
+
 body {
+    color: #f0e6f3;
+    background-color: #011911;
     padding-top: 50px;
     padding-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Freckle Face', sans-serif;
+}
+
+footer {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin-top: 2em;
+    font-size: 0.8em;
+}
+
+.game {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 18px;
 }
