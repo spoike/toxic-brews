@@ -1,4 +1,4 @@
-define(['knockout', 'lodash'], function(ko, _) {
+define(['knockout', 'lodash', 'game/items-repo'], function(ko, _, itemsData) {
 
     function InventoryItem(item, inventory) {
         this.id = item.id;
@@ -17,25 +17,10 @@ define(['knockout', 'lodash'], function(ko, _) {
 
     function Inventory() {
         this.items = ko.observableArray();
-        this.items.push(new InventoryItem({
-            id: 'nirnroot',
-            title: 'Nirnroot',
-            description: 'A common yet ugly looking root with many uses'
-        }, this));
-        this.items.push(new InventoryItem({
-            id: 'deathcap',
-            title: 'Death Cap',
-            description: 'Looks like a colorful mushroom, but deadly'
-        }, this));
-        this.items.push(new InventoryItem({
-            id: 'vampbite',
-            title: 'Vampire\'s Bite',
-            description: 'A harrowing flower, you can feel its blood lust coming from the petals'
-        }, this));
 
-        this.items()[0].count = 5;
-        this.items()[1].count = 3;
-        this.items()[2].count = 2;
+        this.addItem('nirnroot', 5);
+        this.addItem('deathcap', 3);
+        this.addItem('vampbite', 2);
 
         this.selectedItem = ko.observable();
 
@@ -43,6 +28,12 @@ define(['knockout', 'lodash'], function(ko, _) {
             this.selectedItem(null);
         }, this);
     }
+
+    Inventory.prototype.addItem = function(id, amount) {
+        var item = new InventoryItem(itemsData.get(id), this);
+        item.count = amount;
+        this.items.push(item);
+    };
 
     Inventory.prototype.select = function() {
         this.inventory.selectedItem(this);

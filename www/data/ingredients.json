@@ -1,0 +1,42 @@
+[
+    {
+        "id": "lavender",
+        "title": "Lavender",
+        "description": "This purple weed smells great and good for those weak knees"
+    },
+    {
+        "id": "wheat",
+        "title": "Wheat",
+        "description": "By boiling this you can make some wicked porridge with this... Mmm... porridge."
+    },
+    {
+        "id": "chamomile",
+        "title": "Chamomile",
+        "description": "Trouble getting in bed? Make some daisy tea. Trouble getting it on? Can't help you there."
+    },
+    {
+        "id": "crudeoil",
+        "title": "Crude Oil",
+        "description": "Slippery when applied to the ground. Be careful so you don't fall for it yourself."
+    },
+    {
+        "id": "salt",
+        "title": "Rock Salt",
+        "description": "Lick it. You won't regret it!"
+    },
+    {
+        "id": "deathcap",
+        "title": "Death Cap",
+        "description": "This is one colorful but ominous looking mushroom"
+    },
+    {
+        "id": "vampbite",
+        "title": "Vampire's Bite",
+        "description": "A harrowing flower, you can feel its blood lust coming from the petals"
+    },
+    {
+        "id": "nirnroot",
+        "title": "Nirnroot",
+        "description": "A common and yet a hideous and ugly looking root with many uses"
+    }
+]
